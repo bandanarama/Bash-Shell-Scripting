@@ -1,0 +1,15 @@
+cat /etc/shells             //shows shells available 
+touch name.sh              //create file bash shell
+ls -al                     //list permissions r-read w-write x-xecutable d-delete
+chmod +x name.sh            //add xecutable to name.sh 
+./name.sh                   //run file
+
+In Script
+#! /bin.bash             //add path
+echo "Hello Bash linux audience Script" > text.txt   //output of file stored in text.txt
+cat > text.txt  //input in terminal send output to text.txt replaces text
+cat >> text.txt  //input in terminal send output to text.txt appends to text
+
+
+Project file path
+/mnt/c/users/kyle/desktop/projects/learning/learning/bashscripting
