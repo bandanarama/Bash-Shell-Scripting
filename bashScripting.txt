@@ -41,7 +41,36 @@ for i in {0..20..2}  //start..ending..increment or (( i=o; i<5; i++ ))
 do
 	echo $i
 done
-
+---------------input---------------------
+echo  $0 $1 $2 $3  //takes in next input output into terminal
+args=("$@")          //unlimited #of inputs in array
+echo ${args[0]} ${args[1]} ${args[2]}
+echo $@  //print all inputs in array
+echo $# //number of args in array
 break // break loop continue //goes to next loop
+
+while read line
+do 
+	echo "$line"
+done < "${1:-/dev/stdin}" //reads file context from document
+
+--------------------standard output---------------------------
+ls +al 1>file1.txt 2>file2.txt      //first shows standard output to one file, second shows standard error to 2 file
+ls +al >&file1.txt //standard output and error into one file
+
+-------------send output one to another ----------------------
+#! /bin/bash 
+MESSAGE="hello linux"
+export MESSAGE
+./secondScript.sh
+
+\< \\smaller than 
+^ or ^^ \\capitalization
+-----------------math-------------------
+n1=20
+n2=30
+echo $(( n1 + n2 )) or echo $(expr $n1 + $n2 )
+
+
 Project file path
 /mnt/c/users/kyle/desktop/projects/learning/learning/bashscripting
