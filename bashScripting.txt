@@ -9,7 +9,39 @@ In Script
 echo "Hello Bash linux audience Script" > text.txt   //output of file stored in text.txt
 cat > text.txt  //input in terminal send output to text.txt replaces text
 cat >> text.txt  //input in terminal send output to text.txt appends to text
+#this is a comment   //comment in script
+: ' // multiline comment
+cat << kreativ 
+kreativ                       //show whats in between in command line
 
+------------------if----------------------------------
+if(($count > 9))
+then
+	echo "the condition is true"
+else 
+	echo "false"
+fi
+-gt // greater than -lt //less than -o //or  && //and || //or 
+-ge //greater than equal -le //less than equal
 
+---------------while------------------------
+while [ $number -lt 10 ]
+do 
+	echo "$number"
+	number=$(( number+1 ))
+done
+---------------run until-------------------------
+until [ $number -lt 10 ]
+do 
+	echo "$number"
+	number=$(( number+1 ))
+done
+-----------------for--------------------------------
+for i in {0..20..2}  //start..ending..increment or (( i=o; i<5; i++ ))
+do
+	echo $i
+done
+
+break // break loop continue //goes to next loop
 Project file path
 /mnt/c/users/kyle/desktop/projects/learning/learning/bashscripting
