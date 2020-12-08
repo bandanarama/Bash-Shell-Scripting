@@ -195,7 +195,22 @@ fi
 done
 
 ------------------wait for filesystem events with inotify--------------------
+sudo apt install inotify-tools
+mkdir -p temp/newfolder  // -p path 
+inotifywait -m temp/newfolder
+******sets notifications****
 ---------------grep----------------------
+echo "Enter filename to search text from" 
+read fileName
+if [[-f $fileName]]
+then 
+	echo "enter text to search"
+	read grepvar
+	grep -i -n -c -v $grepvar $fileName //search text within the filename -i remove case sensitive -n line numbers -c occurance of times -v show lines without the word
+else
+	echo "$fileName does not exist"
+fi
+
 -----------------awk-----------------------
 ------------------sed--------------------------
 -------------------debugging bash scripts-----------------------
