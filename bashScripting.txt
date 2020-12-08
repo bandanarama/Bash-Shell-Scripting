@@ -70,7 +70,134 @@ export MESSAGE
 n1=20
 n2=30
 echo $(( n1 + n2 )) or echo $(expr $n1 + $n2 )
+------------declare command----------------------------------
+declare -p //all variables in shell
+declare -- myvariable=11
+declare -r pwdfile=/etc/passwd //read only file and cant change
+echo $pwdfile
+------------------arrays--------------------------
+car=('BMW' 'Toyota' 'Honda')
+echo "${car[@]}"
+echo "${!car[@]}"  //show index
+echo "${#car[@]}"  //how many variables
+unset car[2]   //remove array 2 
+--------------Functions-----------------------------------
+function functionName() 
+{
+	echo $1 $2
+}
 
+fuctionName Hi Hello
 
+-----------files and directories--------------------------
+mkdir -p directory2
+
+echo "Enter directory name to check" 
+read direct
+
+if [ -d "$direct" ]   //-d for folder
+then 
+	echo "$direct exists"
+else 
+	echo "$direct doesn't exist" 
+fi
+
+echo "Enter filename to check" 
+read fileName
+
+if [[ -f "$fileName" ]]   //-f for file
+then 
+	echo "$fileName exists"
+else 
+	echo "$fileName doesn't exist" 
+fi
+
+//append text to file 
+echo "Enter filename where you want to append" 
+read fileName
+
+if [[ -f "$fileName" ]]   //-f for file
+then 
+	echo "Enter text you want to append"
+	read fileText
+	echo "$fileText" >> $file
+else 
+	echo "$fileName doesn't exist" 
+fi
+
+//read lines in text
+echo "Enter filename where you want to read" 
+read fileName
+
+if [[ -f "$fileName" ]]   //-f for file
+then 
+	while IFS= read -r line
+	do
+		echo"$line"
+	done < $fileName         //reading from the file
+else 
+	echo "$fileName doesn't exist" 
+fi
+
+touch $filename
+
+--------------sending email via script------------------------------------
+sudo apt install ssmtp //need to install in shell 
+********google accountm, security, turn less secure apps ON**********
+gedit /etc/ssmtp/ssmtp.conf
+****in file*****
+root=whatever@gmail.com
+mailhub=smtp.gmail.com:587 //ssl 465
+AuthUser=whatever@gmail.com
+AuthPass=password
+UseSTARTTLS=yes
+
+****in bash script**********
+ssmtp whatever@gmail.com
+
+To:
+From:
+Cc:
+Subject:
+Body context
+
+----------------curl in scripts-----------------------------
+url=""
+curl ${url}  -O              //inherit original filename -o means opetions
+curl ${url}  -O newFileDo    //rename file name
+curl ${url}  > newFileDo    //send to file name
+curl -I ${url}  //Look at file header properties
+
+---------------------professional menus-----------------------
+select car in BMW MERCEDES TESLA ROVER TOYOTA
+do
+	case $car in 
+	BMW)	
+		echo "BMW Selected";; 
+	MERCEDES)	
+		echo "BMW Selected";;
+	*)	
+		echo "Error: Please select between 1-5";;
+	esac
+done
+
+echo"press any key to continue"
+while [true]
+do
+	read -t 3 -n 1          //t seconds (3seconds) n print out (print out 1ce)
+if[ $? = 0 ]
+then 
+	echo "you have terminated the script" 
+	exit;
+else 
+	echo "waiting for you to press the key"
+fi
+done
+
+------------------wait for filesystem events with inotify--------------------
+---------------grep----------------------
+-----------------awk-----------------------
+------------------sed--------------------------
+-------------------debugging bash scripts-----------------------
 Project file path
 /mnt/c/users/kyle/desktop/projects/learning/learning/bashscripting

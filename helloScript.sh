@@ -1,5 +1,4 @@
 #! /bin/bash 
-n1=20
-n2=30
-echo $(( n1 + n2 ))
-
+select car in BMW MERCEDES TESLA ROVER TOYOTA
+do
+	echo "You have selected $car"
