@@ -214,5 +214,14 @@ fi
 -----------------awk-----------------------
 ------------------sed--------------------------
 -------------------debugging bash scripts-----------------------
+3 ways to debug script
+terminal bash -x ./helloscript.sh  //step by step which lines are being executed
+
+in script #! /bin/bash -x
+
+*what point to what point want the script to run* 
+set -x //start point 
+set +x //end point
+
 Project file path
 /mnt/c/users/kyle/desktop/projects/learning/learning/bashscripting
